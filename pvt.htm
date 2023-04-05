@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html xmlns="https://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+
+    <link type="text/css" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400">
+    <link type="text/css" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans+Text:400&amp;text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93">
+    </style>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <title>PVT </title>
+
+    <meta name="description" content="TBU" />
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+    <script type="text/javascript" src="warpspeed.min.js"></script>
+
+    <!-- <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="docs/assets/css/demo.css" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="tam_logobox_icon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="myStyleSheet.css" rel="stylesheet">
+
+</head>
+
+<div style="position:fixed; z-index:1; top:0; left:0; width:100%; height:100%; overflow:auto;">
+
+    <div id="theHead"> Human Robot Teaming <br> Psychomotor Vigilance Test </div>
+
+    <form id="input_form" class="container" autocomplete="off">
+
+        <label for="inp" class="inp">
+            <input type="text" id="inp" placeholder="&nbsp;">
+            <span class="label">Participant ID</span>
+            <span class="focus-bg"></span>
+        </label>
+
+        <div class="select">
+            <select id="standard-select">
+                <!-- <option value="" selected disabled hidden> select</option> -->
+                <option value="protocol_1">Protocol 1</option>
+				<option value="protocol_2">Protocol 2</option>
+				<option value="protocol_3">Protocol 3</option>
+            </select>
+            <span class="focus"></span>
+        </div>
+
+        <a onclick="beginSequence();displaycircle()" class="simpleButton" id="beginBtn" style="top: 70%;"
+            onmouseover="this.style.color = 'grey'" onmouseout="this.style.color = 'white'"> &lt; begin &gt; </a>
+        <!-- <div id="creditBtn" onmouseover="this.style.color = 'grey'" onmouseout="this.style.color = 'white'"
+            onclick="showCredits()"> credits </div> -->
+    </form>
+
+    <div id="credits" style="color:#FFFFFF; text-align: center;">
+        <br>
+        Developed by <a href="https://www.rohithkarthikeyan.com" target="_blank"> Rohith Karthikeyan</a>,
+        rohithkarthikeyan[at]tamu[dot]edu <br>
+        The NeuroErgonomics Laboratory, Texas A&M University <br>
+        <br>
+        Star field effect inspired by <a href="https://fdossena.com/?p=about.frag" target="_blank"> Federico
+            Dossena </a> and <a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw" target="_blank"> The
+            Coding Train</a> <br> <br>
+    </div>
+
+    <div id="backBtn" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'"
+        onclick="goBack()">
+        Back</div>
+
+    <div id="subjectiveForm" class="responseContainer"
+        style="display: none; text-align: left; margin-left: auto; margin-right: auto;">
+
+        <div class="row">
+            <h4 style="color: tan;"> Refresh the page </h4>
+            <div class="col-xs-12">
+<!--
+                <h5 style="margin-top:30px; font-size: 20px;color: rgb(241, 216, 103);"> Rate your present level
+                    of motivation to continue this activity. </h5>
+                <p style="font-size: 15px;"> 1 - absolutely no motivation; 10 - extremely motivated,
+                    eager to continue</p>
+
+                <div class="radio-toolbar-2">
+
+                    <input type=radio name="motivation" value="1" id='r1' autocomplete="off">
+                    <label for='r1' style="background-color: #ff0000; color:black">1</label>
+
+                    <input type=radio name="motivation" value="2" id='r2' autocomplete="off">
+                    <label for='r2' style="background-color: #ff3300; color: black;">2</label>
+
+                    <input type=radio name="motivation" value="3" id='r3' autocomplete="off">
+                    <label for='r3' style="background-color: #ff6600; color: black;">3</label>
+
+                    <input type=radio name="motivation" value="4" id='r4' autocomplete="off">
+                    <label for='r4' style="background-color: #ff9900; color:black">4</label>
+
+                    <input type=radio name="motivation" value="5" id='r5' autocomplete="off">
+                    <label for='r5' style="background-color: #ff9900; color: black;">5</label>
+
+                    <input type=radio name="motivation" value="6" id='r6' autocomplete="off">
+                    <label for='r6' style="background-color: #ff9900; color: black;">6</label>
+
+                    <input type=radio name="motivation" value="7" id='r7' autocomplete="off">
+                    <label for='r7' style="background-color: #ccff00; color: black;">7</label>
+
+                    <input type=radio name="motivation" value="8" id='r8' autocomplete="off">
+                    <label for='r8' style="background-color: #59de00; color: black;">8</label>
+
+                    <input type=radio name="motivation" value="9" id='r9' autocomplete="off">
+                    <label for='r9' style="background-color: #66ff00; color: black;">9</label>
+
+                    <input type=radio name="motivation" value="10" id='r10' autocomplete="off">
+                    <label for='r10' style="background-color: #33ff00; color: black;">10</label>
+
+
+                </div>
+
+                <p>&nbsp;</p>
+
+                <h5 style="margin-top:10px; font-size: 20px;color: rgb(241, 216, 103);"> Rate
+                    your present level of fatigue. </h5>
+                <p style="font-size: 15px;"> 1 - not fatigued whatsoever; 10 - extremely
+                    fatigued, unable to continue</p>
+
+                <div class="radio-toolbar-2">
+
+                    <input type=radio name="fatigue" value="1" id='f1' autocomplete="off">
+                    <label for='f1' style="background-color: #33ff00; color: black;">1</label>
+
+                    <input type=radio name="fatigue" value="2" id='f2' autocomplete="off">
+                    <label for='f2' style="background-color: #66ff00; color: black;">2</label>
+
+                    <input type=radio name="fatigue" value="3" id='f3' autocomplete="off">
+                    <label for='f3' style="background-color: #59de00; color: black;">3</label>
+
+                    <input type=radio name="fatigue" value="4" id='f4' autocomplete="off">
+                    <label for='f4' style="background-color: #ccff00; color: black;">4</label>
+
+                    <input type=radio name="fatigue" value="5" id='f5' autocomplete="off">
+                    <label for='f5' style="background-color: #ff9900; color: black;">5</label>
+
+                    <input type=radio name="fatigue" value="6" id='f6' autocomplete="off">
+                    <label for='f6' style="background-color: #ff9900; color: black;">6</label>
+
+                    <input type=radio name="fatigue" value="7" id='f7' autocomplete="off">
+                    <label for='f7' style="background-color: #ff9900; color:black">7</label>
+
+                    <input type=radio name="fatigue" value="8" id='f8' autocomplete="off">
+                    <label for='f8' style="background-color: #ff6600; color: black;">8</label>
+
+                    <input type=radio name="fatigue" value="9" id='f9' autocomplete="off">
+                    <label for='f9' style="background-color: #ff3300; color: black;">9</label>
+
+                    <input type=radio name="fatigue" value="10" id='f10' autocomplete="off">
+                    <label for='f10' style="background-color: #ff0000; color:black">10</label>
+
+
+                </div>
+
+                <p>&nbsp;</p>
+
+
+                <h5 style="margin-top:10px; font-size: 20px;color: rgb(241, 216, 103);"> Rate your level
+                    of
+                    effort in completing this exercise so far. </h5>
+                <p style="font-size: 15px;"> 1 - effortless and easy; 10 - extreme effort to stay on
+                    task</p>
+
+                <div class="radio-toolbar-2">
+
+                    <input type=radio name="effort" value="1" id='e1' autocomplete="off">
+                    <label for='e1' style="background-color: #33ff00; color: black;">1</label>
+
+                    <input type=radio name="effort" value="2" id='e2' autocomplete="off">
+                    <label for='e2' style="background-color: #66ff00; color: black;">2</label>
+
+                    <input type=radio name="effort" value="3" id='e3' autocomplete="off">
+                    <label for='e3' style="background-color: #59de00; color: black;">3</label>
+
+                    <input type=radio name="effort" value="4" id='e4' autocomplete="off">
+                    <label for='e4' style="background-color: #ccff00; color: black;">4</label>
+
+                    <input type=radio name="effort" value="5" id='e5' autocomplete="off">
+                    <label for='e5' style="background-color: #ff9900; color: black;">5</label>
+
+                    <input type=radio name="effort" value="6" id='e6' autocomplete="off">
+                    <label for='e6' style="background-color: #ff9900; color: black;">6</label>
+
+                    <input type=radio name="effort" value="7" id='e7' autocomplete="off">
+                    <label for='e7' style="background-color: #ff9900; color:black">7</label>
+
+                    <input type=radio name="effort" value="8" id='e8' autocomplete="off">
+                    <label for='e8' style="background-color: #ff6600; color: black;">8</label>
+
+                    <input type=radio name="effort" value="9" id='e9' autocomplete="off">
+                    <label for='e9' style="background-color: #ff3300; color: black;">9</label>
+
+                    <input type=radio name="effort" value="10" id='e10' autocomplete="off">
+                    <label for='e10' style="background-color: #ff0000; color:black">10</label>
+
+
+                </div>
+
+                <p>&nbsp;</p>
+
+
+                <h5 style="margin-top:10px; font-size: 20px;color: rgb(241, 216, 103);"> Rate the level of mental demand
+                    placed by the task so far. </h5>
+                <p style="font-size: 15px;"> 1 - negligble, very comfortable; 10 - extremely challenging, difficult to
+                    stay
+                    on
+                    task</p>
+
+                <div class="radio-toolbar-2">
+
+                    <input type=radio name="workload" value="1" id='w1' autocomplete="off">
+                    <label for='w1' style="background-color: #33ff00; color: black;">1</label>
+
+                    <input type=radio name="workload" value="2" id='w2' autocomplete="off">
+                    <label for='w2' style="background-color: #66ff00; color: black;">2</label>
+
+                    <input type=radio name="workload" value="3" id='w3' autocomplete="off">
+                    <label for='w3' style="background-color: #59de00; color: black;">3</label>
+
+                    <input type=radio name="workload" value="4" id='w4' autocomplete="off">
+                    <label for='w4' style="background-color: #ccff00; color: black;">4</label>
+
+                    <input type=radio name="workload" value="5" id='w5' autocomplete="off">
+                    <label for='w5' style="background-color: #ff9900; color: black;">5</label>
+
+                    <input type=radio name="workload" value="6" id='w6' autocomplete="off">
+                    <label for='w6' style="background-color: #ff9900; color: black;">6</label>
+
+                    <input type=radio name="workload" value="7" id='w7' autocomplete="off">
+                    <label for='w7' style="background-color: #ff9900; color:black">7</label>
+
+                    <input type=radio name="workload" value="8" id='w8' autocomplete="off">
+                    <label for='w8' style="background-color: #ff6600; color: black;">8</label>
+
+                    <input type=radio name="workload" value="9" id='w9' autocomplete="off">
+                    <label for='w9' style="background-color: #ff3300; color: black;">9</label>
+
+                    <input type=radio name="workload" value="10" id='w10' autocomplete="off">
+                    <label for='w10' style="background-color: #ff0000; color:black">10</label>
+
+
+                </div>
+
+                <p>&nbsp;</p>
+
+                <p>&nbsp;</p>
+                <div id='progressbarSubjective' style="margin-bottom:50px; margin-left:0%"></div>
+
+                <a onclick="submitSubjectiveResponse()" id="continueBtn" class="simpleButton" style="display: table-cell; vertical-align: bottom; font-size : 20px;
+                               left: 45%;" onmouseover="this.style.color = 'grey'"
+                    onmouseout="this.style.color = 'white'">
+                    &lt; proceed &gt; </a>
+-->
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="thanks" style="color:#FFFFFF; text-align: center; display: none;">
+        <h2 style="color:tan">Experiment completed!</h2>
+        <p style="text-align: center;">
+            Thank you for participating in our study <br>
+            Please direct your questions to the research team OR email
+            jjkang612[at]tamu[dot]edu
+        </p>
+    </div>
+
+	<span id="circle" 
+		style='display: none; color:#FF0000; font-size:100px; text-align: center; margin-top:20%;'>&#128308</span>
+    <span id="timer"
+        style="display: none; color:#FFFFFF; text-align: center; margin-top:20%; font-family: Roboto; font-size: 2em;"></span>
+    <p id="block-intro"
+        style="display: none; color:#FFFFFF; text-align: center; margin-top:20%; font-family: Roboto; font-size: 2em;">
+    </p>
+
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="pvt-scripts-5.js"></script>
+
+<script>
+
+    var showCredits = function () {
+        console.log('show-credits');
+        document.getElementById("creditBtn").style.display = "none";
+        document.getElementById("input_form").style.display = "none";
+        document.getElementById("credits").style.display = "block";
+        document.getElementById("backBtn").style.display = "block";
+    }
+
+    function continueInterface(next_up) {
+        var d = $.Deferred();
+        console.log('continue-interface');
+        document.getElementById("input_form").style.display = "none";
+        document.getElementById("subjectiveForm").style.display = "block";
+        document.getElementById("theHead").style.display = "none";
+        d.resolve();
+        return d.promise();
+    }
+
+    function displaycircle() {
+        console.log('display-circle');
+		document.getElementById("circle").style.display = "none";
+	}
+	
+    function waitForSubmission() {
+        console.log('wait-for-submission');
+        var d = $.Deferred();
+        document.getElementById("continueBtn").onclick = function () {
+            submitSubjectiveResponse();
+            d.resolve();
+        }
+        return d.promise();
+    }
+
+    function goBack() {
+        console.log('go-back');
+        document.getElementById("input_form").style.display = "block";
+        document.getElementById("credits").style.display = "none";
+        document.getElementById("creditBtn").style.display = "block";
+        document.getElementById("backBtn").style.display = "none";
+    }
+
+    function submitSubjectiveResponse() {
+        console.log('submit-subjective-response');
+        subjectiveResponseSubmissionTime = Date().toLocaleString();
+        var usrSelect = document.getElementById("standard-select");
+        // Construct form elements into Application/JSON template
+        const data = {
+            participantId: document.getElementById('inp').value,
+            activity: usrSelect.value,
+            subjectiveResponseSubmissionTime: subjectiveResponseSubmissionTime,
+            effort: $("input[type='radio'][name='effort']:checked").val(),
+            fatigue: $("input[type='radio'][name='fatigue']:checked").val(),
+            motivation: $("input[type='radio'][name='motivation']:checked").val(),
+            workload: $("input[type='radio'][name='workload']:checked").val()
+        };
+
+        // Send form response (sheet monkey)
+        fetch('https://api.sheetmonkey.io/form/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then((result) => {
+            // Handle the result
+            console.log('subjective-response-submitted')
+        });
+
+        //reset pesky buttons
+        $('input[name="effort"]').attr('checked', false);
+        $('input[name="fatigue"]').attr('checked', false);
+        $('input[name="motivation"]').attr('checked', false);
+        $('input[name="workload"]').attr('checked', false);
+
+        return;
+    }
+
+    function beginSequence() {
+        console.log('begin-sequence');
+        // clear display
+        document.getElementById("input_form").style.display = "none";
+        document.getElementById("theHead").style.display = "none";
+
+        // continueInterface().pipe(waitForSubmission).
+        //     pipe(pvt_member_functions.setup).pipe(doNothingBuffer)
+        //     .pipe(continueInterface).pipe(waitForSubmission)
+        //     .pipe(completionStatus).pipe(returnHome);
+
+        continueInterface().
+        pipe(pvt_member_functions.setup).pipe(doNothingBuffer)
+        .pipe(continueInterface)
+        .pipe(completionStatus).pipe(returnHome);
+    }
+
+    function instructions_pvt() {
+        console.log('instructions-pvt');
+        var d = $.Deferred();
+        document.getElementById("input_form").style.display = "none";
+        document.getElementById("instructions-pvt").style.display = "block";
+        document.getElementById("subjectiveForm").style.display = "none";
+        d.resolve();
+        return d.promise();
+
+    }
+
+    function instructions_two_back() {
+        console.log('instructions-2-back');
+        var d = $.Deferred();
+        document.getElementById("input_form").style.display = "none";
+        document.getElementById("instructions-2-back").style.display = "block";
+        document.getElementById("subjectiveForm").style.display = "none";
+        d.resolve();
+        return d.promise();
+
+    }
+
+    function waitForProceedPVT() {
+        console.log('wait-for-proceed-pvt');
+        var d = $.Deferred();
+        document.getElementById("proceedPVTBtn").onclick = function () {
+            document.getElementById('instructions-pvt').style.display = "none";
+            d.resolve();
+        }
+        return d.promise();
+    }
+
+    function waitForProceedTwoBack() {
+        console.log('wait-for-proceed-2-back');
+        var d = $.Deferred();
+        document.getElementById("proceedTwoBackBtn").onclick = function () {
+            document.getElementById('instructions-2-back').style.display = "none";
+            d.resolve();
+        }
+        return d.promise();
+    }
+
+    function doNothingBuffer() {
+        console.log('do-nothing-buffer');
+        var d = $.Deferred();
+        setTimeout(function () {
+            console.log('do-nothing-buffer');
+            d.resolve();
+            return d.promise();
+        }, 2000);
+    }
+
+    function completionStatus() {
+        var d = $.Deferred();
+        console.log('run-completed');
+        alert('PVT Completed!');
+        d.resolve();
+        return d.promise();
+    }
+
+    function returnHome() {
+        console.log('return-home');
+        var d = $.Deferred();
+        document.getElementById("input_form").style.display = "block";
+        document.getElementById("theHead").style.display = "block";
+        document.getElementById("subjectiveForm").style.display = "none";
+        d.resolve();
+        return d.promise();
+    }
+
+</script>
