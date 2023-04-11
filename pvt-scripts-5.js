@@ -9,7 +9,7 @@ pvt_member_functions = function () {
     var timerUpdater;
     var pvt_start_time;
     var pvt_elapsed_time;
-    var pvtDurationMinutes = 0.2;
+    var pvtDurationMinutes = 1;
     var pvtBlockDuration = pvtDurationMinutes * 60 * 1000;
 
     function PVT_instance() {
@@ -155,7 +155,7 @@ pvt_member_functions = function () {
         const a = document.createElement('a');
         a.setAttribute('hidden', '');
         a.setAttribute('href', url);
-        a.setAttribute('download', 'pvt_data_'+Date.now()+'.csv');
+        a.setAttribute('download', 'pvt_' + document.getElementById('inp').value + '_' + Date.now() + '.csv');
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
