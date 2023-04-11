@@ -9,7 +9,7 @@ pvt_member_functions = function () {
     var timerUpdater;
     var pvt_start_time;
     var pvt_elapsed_time;
-    var pvtDurationMinutes = 1;
+    var pvtDurationMinutes = 5;
     var pvtBlockDuration = pvtDurationMinutes * 60 * 1000;
 
     function PVT_instance() {
