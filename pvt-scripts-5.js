@@ -44,7 +44,7 @@ pvt_member_functions = function () {
         if (shouldHandleKeyDown) {
             shouldHandleKeyDown = false;
 
-            if (e.key === ' ' && PVT_active === true) {
+            if ((e.key === ' ' && PVT_active === true) || (e.type === 'touchstart' && PVT_active === true)) {
                 if (terminatePVTFlag) {
                     console.log('terminating-PVT');
                     clearInterval(timerUpdater);
