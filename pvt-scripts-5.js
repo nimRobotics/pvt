@@ -169,7 +169,7 @@ pvt_member_functions = function () {
         try {
             var act = document.getElementById('standard-select').value;
         } catch {
-            act = "demo";
+            act = "NA";
         }
 
         // Construct form elements into Application/JSON template

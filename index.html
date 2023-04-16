@@ -39,7 +39,12 @@
 
 <div style="position:fixed; z-index:1; top:0; left:0; width:100%; height:100%; overflow:auto;">
 
-    <div id="theHead"> Human Robot Teaming <br> Psychomotor Vigilance Test </div>
+    <div id="theHead"> Psychomotor Vigilance Test (PVT)
+        <br>
+        <br>
+        <p style="color: white; font-size: 20px; margin-left: 300px; margin-right: 300px;"> The PVT will start as soon as BEGIN is pressed. A <span style="color:red">RED</span> dot will appear on the screen at random time. Please press the SPACEBAR button as soon as you see the <span style="color:red">RED</span> dot.</p>
+        <br>
+</div>
 
     <form id="input_form" class="container" autocomplete="off">
 
@@ -49,15 +54,15 @@
             <span class="focus-bg"></span>
         </label>
 
-        <div class="select">
+        <!-- <div class="select">
             <select id="standard-select">
-                <!-- <option value="" selected disabled hidden> select</option> -->
+                <option value="" selected disabled hidden> select</option>
                 <option value="protocol_1">Protocol 1</option>
 				<option value="protocol_2">Protocol 2</option>
 				<option value="protocol_3">Protocol 3</option>
             </select>
             <span class="focus"></span>
-        </div>
+        </div> -->
 
         <a onclick="beginSequence();displaycircle()" class="simpleButton" id="beginBtn" style="top: 70%;"
             onmouseover="this.style.color = 'grey'" onmouseout="this.style.color = 'white'"> &lt; begin &gt; </a>
